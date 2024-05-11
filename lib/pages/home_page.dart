@@ -10,25 +10,23 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-
-
 class _HomePageState extends State<HomePage> {
   final _textContoller = TextEditingController();
   
-  List ToDoList = [
+  List toDoList = [
     ["Task1", false],
     ["Task2", true],
   ];
 
   void checkBoxChanged(bool? value, int index) {
     setState(() {
-      ToDoList[index][1] = !ToDoList[index][1];
+      toDoList[index][1] = !toDoList[index][1];
     });
   }
 
   void _onSaved() {
     setState(() {
-      ToDoList.add([_textContoller.text, false]);
+      toDoList.add([_textContoller.text, false]);
     });
     Navigator.of(context).pop();
   }
@@ -45,13 +43,13 @@ class _HomePageState extends State<HomePage> {
 
   void deleteTask(int index) {
     setState(() {
-      ToDoList.removeAt(index);
+      toDoList.removeAt(index);
     });
   }
 
   void duplicateTask(int index) {
     setState(() {
-      ToDoList.add(ToDoList[index]);
+      toDoList.add(toDoList[index]);
     });
   }
 
@@ -71,11 +69,11 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
       ),
       body: ListView.builder(
-        itemCount: ToDoList.length,
+        itemCount: toDoList.length,
         itemBuilder: (BuildContext context, int index) {
           return ToDoTile(
-              taskName: ToDoList[index][0],
-              taskValue: ToDoList[index][1],
+              taskName: toDoList[index][0],
+              taskValue: toDoList[index][1],
               onChanged: (value) => checkBoxChanged(value, index),
               deleteTask: (value) => deleteTask(index),
               duplicateTask: (value) => duplicateTask(index),);

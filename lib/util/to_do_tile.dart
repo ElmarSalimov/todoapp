@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 class ToDoTile extends StatelessWidget {
@@ -24,7 +23,7 @@ class ToDoTile extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
       child: Slidable(
         endActionPane: ActionPane(
-          motion: StretchMotion(),
+          motion: const StretchMotion(),
           children: [
             SlidableAction(
               onPressed: deleteTask,
@@ -34,7 +33,7 @@ class ToDoTile extends StatelessWidget {
           ],
         ),
         startActionPane: ActionPane(
-          motion: StretchMotion(),
+          motion: const StretchMotion(),
           children: [
             SlidableAction(
               onPressed: duplicateTask,
