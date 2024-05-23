@@ -5,7 +5,6 @@ class ToDoTile extends StatelessWidget {
   final String taskName;
   final bool taskValue;
   Function(BuildContext)? deleteTask;
-  Function(BuildContext)? duplicateTask;
   Function(bool?)? onChanged;
 
   ToDoTile({
@@ -14,7 +13,6 @@ class ToDoTile extends StatelessWidget {
     required this.taskValue,
     required this.onChanged,
     required this.deleteTask,
-    required this.duplicateTask
   });
 
   @override
@@ -29,16 +27,6 @@ class ToDoTile extends StatelessWidget {
               onPressed: deleteTask,
               icon: Icons.delete,
               backgroundColor: Colors.red,
-            )
-          ],
-        ),
-        startActionPane: ActionPane(
-          motion: const StretchMotion(),
-          children: [
-            SlidableAction(
-              onPressed: duplicateTask,
-              icon: Icons.add,
-              backgroundColor: Colors.green,
             )
           ],
         ),

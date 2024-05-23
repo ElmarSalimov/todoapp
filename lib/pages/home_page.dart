@@ -12,8 +12,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final _textContoller = TextEditingController();
-  
-  
+
   List toDoList = [
     ["Task1", false],
     ["Task2", true],
@@ -33,13 +32,15 @@ class _HomePageState extends State<HomePage> {
   }
 
   void createNewTask() {
-    showDialog(context: context, builder: (context) {
-      return DialogueBox(
-        controller: _textContoller,
-        onSaved: _onSaved,
-        onCancelled: () => Navigator.of(context).pop(),
-      );
-    });
+    showDialog(
+        context: context,
+        builder: (context) {
+          return DialogueBox(
+            controller: _textContoller,
+            onSaved: _onSaved,
+            onCancelled: () => Navigator.of(context).pop(),
+          );
+        });
   }
 
   void deleteTask(int index) {
@@ -76,12 +77,11 @@ class _HomePageState extends State<HomePage> {
               taskName: toDoList[index][0],
               taskValue: toDoList[index][1],
               onChanged: (value) => checkBoxChanged(value, index),
-              deleteTask: (value) => deleteTask(index),
-              duplicateTask: (value) => duplicateTask(index),);
+              deleteTask: (value) => deleteTask(index));
         },
       ),
-      floatingActionButton:
-          FloatingActionButton(onPressed: createNewTask, child: const Icon(Icons.add)),
+      floatingActionButton: FloatingActionButton(
+          onPressed: createNewTask, child: const Icon(Icons.add)),
     );
   }
 }
