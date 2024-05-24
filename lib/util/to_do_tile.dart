@@ -4,10 +4,10 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 class ToDoTile extends StatelessWidget {
   final String taskName;
   final bool taskValue;
-  Function(BuildContext)? deleteTask;
-  Function(bool?)? onChanged;
+  final Function(BuildContext)? deleteTask;
+  final Function(bool?)? onChanged;
 
-  ToDoTile({
+  const ToDoTile({
     super.key,
     required this.taskName,
     required this.taskValue,

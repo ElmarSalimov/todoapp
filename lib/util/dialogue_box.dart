@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 class DialogueBox extends StatelessWidget {
   final controller;
-  VoidCallback onSaved;
-  VoidCallback onCancelled;
+  final VoidCallback onSaved;
+  final VoidCallback onCancelled;
 
-  DialogueBox(
+  const DialogueBox(
       {super.key,
       required this.controller,
       required this.onSaved,
